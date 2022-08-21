@@ -6,4 +6,4 @@ This was copied from Monzo's User Experience Score that was designed this way
 
 ## Implementation
 
-The standard `Material` slider is used. As the state is update on `onChanged`, the Text widget has a value from the `emojiScores` map.
+The standard Material `slider` is used. As the state is update on `onChanged`, the Text widget has a value from the `emojiScores` map.
