@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 import 'emoji_slider/emoji_slider.dart';
+import 'landing_page/landing_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/emoji-slider': (context) => EmojiSlider(),
+        '/landing-page': (context) => LandingPage(),
       },
     );
   }
@@ -56,6 +58,12 @@ class HomePage extends StatelessWidget {
                   "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
               text: "emoji slider 😁",
               routeName: "/emoji-slider",
+            ),
+            PageCard(
+              imagePath:
+                  "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
+              text: "Landing Page",
+              routeName: "/landing-page",
             ),
           ],
         ),
