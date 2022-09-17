@@ -5,6 +5,7 @@ import 'firebase_options.dart';
 
 import 'emoji_slider/emoji_slider.dart';
 import 'landing_page/landing_page.dart';
+import 'markdown/markdown.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomePage(),
         '/emoji-slider': (context) => EmojiSlider(),
         '/landing-page': (context) => LandingPage(),
+        '/markdown': (context) => MarkdownNotepad(),
       },
     );
   }
@@ -65,6 +67,11 @@ class HomePage extends StatelessWidget {
               text: "Landing Page",
               routeName: "/landing-page",
             ),
+            PageCard(
+                imagePath:
+                    "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
+                text: "Markdown",
+                routeName: "/markdown"),
           ],
         ),
       ),
