@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sandbox/http-requests/http-requests.dart';
 import 'firebase_options.dart';
 
 import 'emoji_slider/emoji_slider.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/landing-page': (context) => const LandingPage(),
         '/markdown': (context) => const MarkdownNotepad(),
         '/black-lion': (context) => const Randomiser(),
+        '/http-requests': (context) => const HttpRequests(),
       },
     );
   }
@@ -76,6 +78,11 @@ class HomePage extends StatelessWidget {
               imagePath: "black-lion.jpg",
               text: "The Black Lion",
               routeName: "/black-lion",
+            ),
+            PageCard(
+              imagePath: "black-lion.jpg",
+              text: "HTTP Requests",
+              routeName: "/http-requests",
             ),
           ],
         ),
