@@ -37,25 +37,15 @@ class _MarkdownNotepadState extends State<MarkdownNotepad> {
           children: [
             MarkdownBody(data: _notepadText),
             TextField(
-              onSubmitted: (value) async {
-                _url = Uri.https("raw.githubusercontent.com", value);
-                var response = await http.get(_url);
-                if (response.statusCode == 200) {
-                  print(response.body);
-                  setState(() {
-                    _notepadText = response.body;
-                  });
-                } else {
-                  print('Request failed with status: ${response.statusCode}.');
-                }
-              },
-            ),
-            TextField(
               maxLines: 8,
               controller: _controller,
               onChanged: (value) => setState(() {
                 _notepadText = value;
               }),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Type some markdown',
+              ),
             ),
           ],
         ),

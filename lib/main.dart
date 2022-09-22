@@ -6,6 +6,7 @@ import 'firebase_options.dart';
 import 'emoji_slider/emoji_slider.dart';
 import 'landing_page/landing_page.dart';
 import 'markdown/markdown.dart';
+import 'the_black_lion/the_black_lion.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,10 +27,11 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
-        '/': (context) => HomePage(),
-        '/emoji-slider': (context) => EmojiSlider(),
-        '/landing-page': (context) => LandingPage(),
-        '/markdown': (context) => MarkdownNotepad(),
+        '/': (context) => const HomePage(),
+        '/emoji-slider': (context) => const EmojiSlider(),
+        '/landing-page': (context) => const LandingPage(),
+        '/markdown': (context) => const MarkdownNotepad(),
+        '/black-lion': (context) => const Randomiser(),
       },
     );
   }
@@ -44,34 +46,37 @@ class HomePage extends StatelessWidget {
     bool isMobile = MediaQuery.of(context).size.width < 600 ? true : false;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dom's Sandbox"),
+        title: const Text("Dom's Sandbox"),
         centerTitle: true,
       ),
       body: Container(
         color: Colors.grey,
         child: GridView.count(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           mainAxisSpacing: 20.0,
           crossAxisSpacing: 20.0,
           crossAxisCount: isMobile ? 2 : 3,
           children: const [
             PageCard(
-              imagePath:
-                  "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
+              imagePath: "emoji.jpg",
               text: "emoji slider 😁",
               routeName: "/emoji-slider",
             ),
             PageCard(
-              imagePath:
-                  "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
+              imagePath: "landing-page.png",
               text: "Landing Page",
               routeName: "/landing-page",
             ),
             PageCard(
-                imagePath:
-                    "https://firebasestorage.googleapis.com/v0/b/sandbox-a7b18.appspot.com/o/emoji-slider.png?alt=media&token=4155905a-5b0e-4a41-81c9-029fd039bbf4",
-                text: "Markdown",
-                routeName: "/markdown"),
+              imagePath: "markdown.png",
+              text: "Markdown",
+              routeName: "/markdown",
+            ),
+            PageCard(
+              imagePath: "black-lion.jpg",
+              text: "The Black Lion",
+              routeName: "/black-lion",
+            ),
           ],
         ),
       ),
@@ -114,15 +119,15 @@ class PageCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(_borderRadius),
                 image: DecorationImage(
-                  image: NetworkImage(imagePath),
-                  fit: BoxFit.fill,
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(_borderRadius),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
